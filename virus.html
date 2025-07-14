@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>!!! SYSTEM COMPROMISED !!!</title>
+  <style>
+    body { background: #000; color: #f00; font-family: 'Courier New', Courier, monospace; overflow: hidden; display: flex; align-items: center; justify-content: center; height: 100vh; text-align: center; }
+    .container { animation: flicker 1.5s infinite alternate, shake 0.2s infinite; }
+    pre { font-size: 1vw; /* 字体大小随屏幕宽度变化 */ line-height: 1; text-shadow: 0 0 5px #f00, 0 0 10px #f00, 0 0 20px #f00; }
+    h1 { font-size: 4vw; margin-top: 20px; text-shadow: 0 0 5px #f00, 0 0 10px #f00; }
+    h2 { font-size: 2vw; color: #fff; margin-top: 10px; animation: flicker 2s infinite alternate 0.5s; }
+    /* 屏幕扫描线效果 */
+    body::after { content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 3px, 3px 100%; z-index: 2; pointer-events: none; animation: scanlines 5s linear infinite; }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(2px); }
+    }
+    @keyframes scanlines {
+      from { background-position: 0 0; }
+      to { background-position: 0 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <pre>
+                      .--.
+                     /,-. `\
+                    //   `\ \
+                   /|      \ |
+                  |/ \   /  \|
+                  /   ) (   `\
+                 /          `\
+                /   | \  / |  `\
+               /    |  \/  |    `\
+              / / / |  ||  | \ \  `\
+             / /   |  ||  |   \ \  `\
+            /  /   |  ||  |    \  \ `\
+           /  /|   |  ||  |     |\  \ \
+          /  / |   |  ||  |     | \  \ \
+         /  /  |   |  ||  |     |  \  \ \
+        /  /   |   |  ||  |     |   \  \ \
+       /  /    |   |  ||  |     |    \  \ \
+      '--'     '---'  ''  '---'      '--'
+    </pre>
+    <h1>病毒入侵！</h1>
+    <h2>你的浏览器已经被我控制了（bushi）</h2>
+  </div>
+</body>
+</html>
