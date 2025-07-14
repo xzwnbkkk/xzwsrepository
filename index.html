@@ -16,6 +16,7 @@
       text-align: center;
       margin-top: 50px;
       font-size: 28px;
+      animation: fadeIn 2s ease-in-out forwards;
     }
 
     #folder {
@@ -28,7 +29,7 @@
       top: -150px;
       left: 50%;
       margin-left: -60px;
-      transition: all 2s ease-out;
+      animation: dropIn 2s ease-out forwards;
     }
 
     #message {
@@ -38,7 +39,15 @@
       text-align: center;
       margin-top: 300px;
       animation: fadeIn 2s ease-in-out forwards;
-      animation-delay: 3s;
+      animation-delay: 2.5s;
+    }
+
+    #emoji {
+      font-size: 80px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+      animation-delay: 4s;
     }
 
     @keyframes dropIn {
@@ -50,29 +59,14 @@
       0% { opacity: 0; transform: scale(0.8); }
       100% { opacity: 1; transform: scale(1); }
     }
-
-    #emoji {
-      font-size: 80px;
-      text-align: center;
-      opacity: 0;
-      animation: fadeIn 2s ease-in-out forwards;
-      animation-delay: 4s;
-    }
   </style>
 </head>
 <body>
 
-  <h1>🔒 正在载入超绝密文件...</h1>
+  <h1>🔒 正在载入超绝密文件&xzwの究極invincibleнууц...</h1>
   <div id="folder"></div>
   <div id="message">你被骗啦！根本没文件！（逃 🏃‍♂️）</div>
   <div id="emoji">😹</div>
-
-  <script>
-    window.onload = () => {
-      const folder = document.getElementById('folder');
-      folder.style.animation = 'dropIn 2s ease-out forwards';
-    };
-  </script>
 
 </body>
 </html>
