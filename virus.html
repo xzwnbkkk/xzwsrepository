@@ -4,51 +4,166 @@
   <meta charset="UTF-8">
   <title>!!! SYSTEM COMPROMISED !!!</title>
   <style>
-    body { background: #000; color: #f00; font-family: 'Courier New', Courier, monospace; overflow: hidden; display: flex; align-items: center; justify-content: center; height: 100vh; text-align: center; }
-    .container { animation: flicker 1.5s infinite alternate, shake 0.2s infinite; }
-    pre { font-size: 1vw; /* 字体大小随屏幕宽度变化 */ line-height: 1; text-shadow: 0 0 5px #f00, 0 0 10px #f00, 0 0 20px #f00; }
-    h1 { font-size: 4vw; margin-top: 20px; text-shadow: 0 0 5px #f00, 0 0 10px #f00; }
-    h2 { font-size: 2vw; color: #fff; margin-top: 10px; animation: flicker 2s infinite alternate 0.5s; }
-    /* 屏幕扫描线效果 */
-    body::after { content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 3px, 3px 100%; z-index: 2; pointer-events: none; animation: scanlines 5s linear infinite; }
-    @keyframes flicker {
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    body {
+      background: #000;
+      color: #f00;
+      font-family: 'VT323', monospace; /* 换一个更复古的像素风字体 */
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 新增：后台滚动代码效果 */
+    #background-text {
+      position: fixed;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      color: #0F0; /* 绿色代码 */
+      opacity: 0.1;
+      font-size: 18px;
+      z-index: 1;
+      user-select: none;
+      animation: scroll-up 20s linear infinite;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      animation: screen-flicker 1.5s infinite alternate, screen-shake 0.2s infinite;
+    }
+
+    /* 新的骷髅头样式 */
+    pre.skull {
+      font-size: 1.2vw; /* 随屏幕宽度自适应 */
+      line-height: 1.1;
+      text-shadow: 0 0 5px #f00, 0 0 15px #f00;
+      margin-bottom: 20px;
+    }
+
+    /* 酷炫的Glitch故障风标题 */
+    .glitch {
+      font-size: 7vw;
+      font-weight: bold;
+      position: relative;
+      color: #fff;
+      text-shadow: 0.05em 0 0 #00fffc, -0.025em -0.05em 0 #ff00fe, 0.025em 0.05em 0 #fec400;
+      animation: glitch-anim 1s infinite linear alternate-reverse;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #000; overflow: hidden; clip: rect(0, 900px, 0, 0);
+    }
+    .glitch::before { left: -2px; text-shadow: 1px 0 #00fffc; animation: glitch-anim-2 1.5s infinite linear alternate-reverse; }
+    .glitch::after { left: 2px; text-shadow: -1px 0 #ff00fe; animation: glitch-anim-3 2s infinite linear alternate-reverse; }
+    
+    h2 {
+      font-size: 2.5vw;
+      color: #f00;
+      text-shadow: 0 0 5px #f00;
+      margin-top: 10px;
+    }
+    
+    /* 最后的真相，延迟出现 */
+    .punchline {
+        font-size: 2.5vw;
+        color: #fff;
+        margin-top: 30px;
+        opacity: 0;
+        animation: reveal-punchline 1s forwards;
+        animation-delay: 1.5s; /* 延迟1.5秒再出现 */
+    }
+
+    /* --- 动画关键帧 --- */
+    @keyframes scroll-up {
+      from { top: -100%; }
+      to { top: 0%; }
+    }
+    @keyframes screen-flicker {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
+      50% { opacity: 0.7; }
     }
-    @keyframes shake {
+    @keyframes screen-shake {
       0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(2px); }
+      50% { transform: translateX(3px); }
     }
-    @keyframes scanlines {
-      from { background-position: 0 0; }
-      to { background-position: 0 100%; }
+    @keyframes reveal-punchline {
+        from { opacity: 0; transform: scale(0.5); }
+        to { opacity: 1; transform: scale(1); }
     }
+    @keyframes glitch-anim {
+      0% { clip: rect(42px, 9999px, 44px, 0); transform: skew(0.5deg); }
+      10% { clip: rect(17px, 9999px, 96px, 0); transform: skew(0.8deg); }
+      20% { clip: rect(81px, 9999px, 63px, 0); transform: skew(0.4deg); }
+      30% { clip: rect(25px, 9999px, 73px, 0); transform: skew(0.2deg); }
+      40% { clip: rect(48px, 9999px, 59px, 0); transform: skew(0.7deg); }
+      50% { clip: rect(65px, 9999px, 119px, 0); transform: skew(0.1deg); }
+      60% { clip: rect(92px, 9999px, 130px, 0); transform: skew(0.9deg); }
+      70% { clip: rect(15px, 9999px, 40px, 0); transform: skew(0.3deg); }
+      80% { clip: rect(70px, 9999px, 95px, 0); transform: skew(0.6deg); }
+      90% { clip: rect(35px, 9999px, 80px, 0); transform: skew(0.0deg); }
+      100% { clip: rect(42px, 9999px, 44px, 0); transform: skew(0.5deg); }
+    }
+    @keyframes glitch-anim-2 { 0% { clip: rect(65px, 9999px, 119px, 0); transform: skew(0.5deg); } 100% { clip: rect(65px, 9999px, 119px, 0); transform: skew(0.5deg); } }
+    @keyframes glitch-anim-3 { 0% { clip: rect(25px, 9999px, 73px, 0); transform: skew(0.2deg); } 100% { clip: rect(25px, 9999px, 73px, 0); transform: skew(0.2deg); } }
   </style>
 </head>
 <body>
+  
+  <!-- 后台滚动代码 -->
+  <pre id="background-text"></pre>
+
   <div class="container">
-    <pre>
-                      .--.
-                     /,-. `\
-                    //   `\ \
-                   /|      \ |
-                  |/ \   /  \|
-                  /   ) (   `\
-                 /          `\
-                /   | \  / |  `\
-               /    |  \/  |    `\
-              / / / |  ||  | \ \  `\
-             / /   |  ||  |   \ \  `\
-            /  /   |  ||  |    \  \ `\
-           /  /|   |  ||  |     |\  \ \
-          /  / |   |  ||  |     | \  \ \
-         /  /  |   |  ||  |     |  \  \ \
-        /  /   |   |  ||  |     |   \  \ \
-       /  /    |   |  ||  |     |    \  \ \
-      '--'     '---'  ''  '---'      '--'
+    <pre class="skull">
+             ...
+            ;::::;
+          ;::::; :;
+        ;:::::'   :;
+       ;:::::;     ;.
+      ,:::::'       ;           OOO\
+      ::::::;       ;          OOOOO\
+      ;:::::;       ;         OOOOOOOO
+     ,;::::::;     ;'         / OOOOOOO
+   ;:::::::::`. ,,,;.        /  / DOOOOOO
+ .';:::::::::::::::::;,     /  /     DOOOO
+,::::::;::::::;;;;::::;,   /  /        DOOO
+;`::::::`'::::::;;;::::: ,#/  /          DOOO
+:`:::::::`;::::::;;::: ;::#  /            DOOO
+::`:::::::`;:::::::: ;::::# /              DOO
+`:`:::::::`;:::::: ;::::::#/               DOO
+ :::`:::::::`;; ;:::::::::##                OO
+ ::::`:::::::`;::::::::;:::#                OO
+ `:::::`::::::::::::;'`:;::#                O
+  `:::::`::::::::;' /  / `:#
+   ::::::`:::::;'  /  /   `#
     </pre>
-    <h1>病毒入侵！</h1>
-    <h2>你的浏览器已经被我控制了（bushi）</h2>
+    <div class="glitch" data-text="!! WARNING !!">!! WARNING !!</div>
+    <h2>MALICIOUS PAYLOAD DEPLOYED</h2>
+    <p class="punchline">哈哈哈，又被骗啦！你电脑没事！🤣</p>
   </div>
+
+  <script>
+    // 生成随机的后台滚动文本
+    const bgText = document.getElementById('background-text');
+    let content = '';
+    const chars = '0123456789ABCDEF!@#$%^&*()_+-=[]{}|;:,.<>?/`~';
+    for (let i = 0; i < 10000; i++) {
+      content += chars[Math.floor(Math.random() * chars.length)];
+      if (i % 200 === 0) content += '\n';
+    }
+    bgText.textContent = content;
+  </script>
+
 </body>
 </html>
