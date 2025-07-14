@@ -1,64 +1,78 @@
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>严肃链接合集</title>
+  <title>超绝密文件&xzwの究極invincibleнууц</title>
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #f0f2f5;
-      padding: 30px;
+      margin: 0;
+      background: linear-gradient(to right, #1a1a1a, #2e2e2e);
+      color: #fff;
+      font-family: "Arial", sans-serif;
+      overflow: hidden;
     }
+
     h1 {
-      color: #333;
+      text-align: center;
+      margin-top: 50px;
+      font-size: 28px;
     }
-    .link-box {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
+
+    #folder {
+      width: 120px;
+      height: 90px;
+      background-color: #d4af37;
+      border: 3px solid #b38f00;
+      border-radius: 8px;
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      margin-left: -60px;
+      transition: all 2s ease-out;
     }
-    a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #007aff;
-      text-decoration: none;
-      font-weight: bold;
+
+    #message {
+      opacity: 0;
+      font-size: 22px;
+      color: #ff5252;
+      text-align: center;
+      margin-top: 300px;
+      animation: fadeIn 2s ease-in-out forwards;
+      animation-delay: 3s;
+    }
+
+    @keyframes dropIn {
+      0% { top: -150px; }
+      100% { top: 150px; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    #emoji {
+      font-size: 80px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+      animation-delay: 4s;
     }
   </style>
 </head>
 <body>
-  <h1>重要通知链接合集（严禁外传）</h1>
 
-  <div class="link-box">
-    <p>🔬 量子力学与睡眠规律研究成果：</p>
-    <a href="weixin://bizmsgmenu?msgmenucontent=经过多年研究，我们发现“早睡早起身体好”确实是真的。&msgmenuid=101">
-    https://www.nature.com/articles/quantum-entropy-theory
-    </a>
-  </div>
+  <h1>🔒 正在载入超绝密文件...</h1>
+  <div id="folder"></div>
+  <div id="message">你被骗啦！根本没文件！（逃 🏃‍♂️）</div>
+  <div id="emoji">😹</div>
 
-  <div class="link-box">
-    <p>📝 公司内部开发规范 V2.5：</p>
-    <a href="weixin://bizmsgmenu?msgmenucontent=上班不摸鱼，人生路白走！摸鱼使人快乐，躺平才是王道！&msgmenuid=102">
-    https://intranet.company.com/tech-guideline-v2.5
-    </a>
-  </div>
-
-  <div class="link-box">
-    <p>📹 B站活动视频：</p>
-    <a href="weixin://bizmsgmenu?msgmenucontent=大家好，我是练习时长两年半的个人练习生蔡徐坤，喜欢唱、跳、rap、篮球，music！&msgmenuid=103">
-    https://www.bilibili.com/video/BV1Sb4y1y7jG
-    </a>
-  </div>
-
-  <div class="link-box">
-    <p>📢 AI研究成果预览链接：</p>
-    <a href="weixin://bizmsgmenu?msgmenucontent=经AI反复学习，我们发现你可能正在偷懒！请保持专注！（但我们理解你）&msgmenuid=104">
-    https://openai.com/research/2025-lazy-detection
-    </a>
-  </div>
+  <script>
+    window.onload = () => {
+      const folder = document.getElementById('folder');
+      folder.style.animation = 'dropIn 2s ease-out forwards';
+    };
+  </script>
 
 </body>
 </html>
